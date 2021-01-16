@@ -1,10 +1,9 @@
 <?php 
-    include('./Connect/connect.php'); 
     $idProduct=$_GET['id'];
     $sql="SELECT * FROM `products` where product_id=$idProduct";
     $bang = connect::ExecuteQuery($sql);
     $dong=mysqli_fetch_array($bang);
-    $src="./images/".$dong["product_image"];
+    $src="../images/".$dong["product_image"];
 
     $sql1="SELECT * from categories c,products p where p.product_id=$idProduct and p.product_cat=c.cat_id";
     $bang1= connect::ExecuteQuery($sql1);
@@ -87,7 +86,7 @@
             <?php
                 while($dongSPCL=mysqli_fetch_array($bangSPCL))
                 {
-                 $srcSPCL="./images/".$dongSPCL["product_image"];
+                 $srcSPCL="../images/".$dongSPCL["product_image"];
                  ?>
                 <div class="product">
                 <?php

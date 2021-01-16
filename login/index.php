@@ -24,10 +24,8 @@ $_SESSION["url"] = $_SERVER['REQUEST_URI'];
 			<div class="account_desc">
 				<ul>
 					<li>Hi,<a href=""><?php echo ($_SESSION['username']); ?></a></li>
-                    <li><a href="../index.php"><?php  session_destroy();  ?>Logout</a></li>
-					<li><a href="#">Delivery</a></li>
-					<li><a href="#">Checkout</a></li>
-					<li><a href="Cart.php">My Cart</a></li>
+                    <li><a href="../php/logout.php">Logout</a></li>
+					<li><a href="cart.php">My Cart</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>
@@ -169,10 +167,10 @@ $_SESSION["url"] = $_SERVER['REQUEST_URI'];
 						switch($act)
 							{
 								case "Category":
-									include('../include/products-by-category.php');
+									include('../include/products-by-category-login.php');
 									break;
 								case "Producer"	:
-									include('../include/products-by-producer.php');
+									include('../include/products-by-producer-login.php');
 									break;					
 							}
 									
@@ -198,14 +196,14 @@ $_SESSION["url"] = $_SERVER['REQUEST_URI'];
                             <div class="product">
                                 <?php
                                         ?>                           
-                                            <a href="#"><img src=<?php echo $src ?> alt=""></a>   
+                                            <a href="../login/preview-login.php?id=<?php echo($dong['product_id']) ?>"><img src=<?php echo $src ?> alt=""></a>   
                                             <h2><?php echo $dong["product_name"] ?></h2>
                                             <div class="price-details">
                                             <div class="price-number">
                                             <p><span class="rupees"></span><?php echo $dong["product_price"] ?> đồng</p>
                                             </div>
                                                    <div class="add-cart">								
-                                                    <h4><a href="preview.html">Add to Cart</a></h4>
+                                                    <h4><a href="../login/preview-login.php?id=<?php echo($dong['product_id']) ?>">Add to Cart</a></h4>
                                                  </div>
                                              <div class="clear"></div>
                                             </div>
@@ -237,14 +235,14 @@ $_SESSION["url"] = $_SERVER['REQUEST_URI'];
                             <div class="product">
                                  <?php
                                          ?>                           
-                                             <a href="#"><img src=<?php echo $src ?> alt=""></a>   
+                                             <a href="../login/preview-login.php?id=<?php echo($dong['product_id']) ?>"><img src=<?php echo $src ?> alt=""></a>   
                                              <h2><?php echo $dong["product_name"] ?></h2>
                                              <div class="price-details">
                                              <div class="price-number">
                                              <p><span class="rupees"></span><?php echo $dong["product_price"] ?> đồng</p>
                                              </div>
                                                     <div class="add-cart">								
-                                                     <h4><a href="preview.html">Add to Cart</a></h4>
+                                                     <h4><a href="../login/preview-login.php?id=<?php echo($dong['product_id']) ?>">Add to Cart</a></h4>
                                                   </div>
                                               <div class="clear"></div>
                                              </div>
@@ -346,3 +344,8 @@ $_SESSION["url"] = $_SERVER['REQUEST_URI'];
 </body>
 </html>
 
+<?php
+	function logout(){
+		session_destroy();
+	}
+?>
