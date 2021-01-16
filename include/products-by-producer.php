@@ -29,11 +29,11 @@
                         <div class="product">
                             <?php
                                     ?>                           
-                                        <a href="#"><img src=<?php echo $src ?> alt=""></a>   
+                                        <a href="./preview.php?id=<?php echo($dong['product_id']) ?>"><img src=<?php echo $src ?> alt=""></a>   
                                         <h2><?php echo $dong["product_name"] ?></h2>                                                      
                                         <div class="price-details">
                                         <div class="price-number">
-                                        <p><span class="rupees"></span><?php echo $dong["product_price"] ?> đồng</p>
+                                        <p><span class="rupees"></span><?php echo(number_format($dong['product_price'])) ?> đồng</p>
                                         </div>
                                             <div class="add-cart">								
                                                 <h4><a href="preview.html">Add to Cart</a></h4>
@@ -51,7 +51,7 @@
 				
 
                 <style>
-    img{
+    .product img{
         width: 200px;
         height: 199px;
     }

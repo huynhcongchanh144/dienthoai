@@ -40,10 +40,11 @@
      echo "Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác. <a href='javascript: history.go(-1)'>Trở lại</a>";
      exit;
  }
- 
- $id=1;
- $permiss="user";
-       
+    $permiss="user";
+    $sql="SELECT * from user ORDER BY id DESC LIMIT 1";
+    $bang=mysqli_query($con,$sql);
+    $dong=mysqli_fetch_array($bang);
+    $id=$dong['id']+1;
  //Lưu thông tin thành viên vào bảng
  @$addmember = mysqli_query($con,"
      INSERT INTO user (
@@ -71,5 +72,5 @@
      {echo "Quá trình đăng ký thành công. <a href='../index.php'>Về trang chủ</a>";
      $id=$id+1;}
  else
-     echo "Có lỗi xảy ra trong quá trình đăng ký. <a href='../login.php'>Thử lại</a>";
+     echo "Có lỗi xảy ra trong quá trình đăng ký. <a href='../signup.php'>Thử lại</a>";
 ?>

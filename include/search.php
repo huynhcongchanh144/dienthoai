@@ -172,39 +172,87 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     	</div>
 	      <div class="section group">
           <?php
-					
-                        $search_value=$_POST["search"];                  
-                        $sql="SELECT * from products where product_name like '%$search_value%'";
-                        $bang = connect::ExecuteQuery($sql);
-                        while($dong=mysqli_fetch_array($bang))
-                        {
-                            $src="../images/".$dong["product_image"];
-                            ?>
-                                <div class="product" style="width: 250px;
-                                                            height: 300px;
-                                                            float: left;
-                                                            margin: 10px;
-                                                            margin-right: 20px;
-                                                            text-align:center;
-                                                            border: 1px solid #ebe8e8;">
-                                    <?php
-                                            ?>                           
-                                                <a href="#"><img style="width: 200px; height: 199px;" src=<?php echo $src ?> alt=""></a>   
-                                                <h2 style="font-size: 14px;color: blue"><?php echo $dong["product_name"] ?></h2>
-                                                <div class="price-details">
-                                                <div class="price-number">
-                                                <p><span class="rupees"></span><?php echo $dong["product_price"] ?> đồng</p>
-                                                </div>
-                                                    <div class="add-cart">								
-                                                        <h4><a href="preview.html">Add to Cart</a></h4>
-                                                    </div>
-                                                <div class="clear"></div>
-                                                </div>
-                                            <?php					    
-                                        ?>
-                                    </div>
-                            <?php
-                        }
+					function get_string_between($string, $start, $end){
+						$string = ' ' . $string;
+						$ini = strpos($string, $start);
+						if ($ini == 0) return '';
+						$ini += strlen($start);
+						$len = strpos($string, $end, $ini) - $ini;
+						return substr($string, $ini, $len);
+					}
+
+						$search_value=$_POST["search"];             
+						$price=strpos($search_value,"-");
+						if($price==false){
+							$sql="SELECT * from products p join categories c on p.product_cat=c.cat_id
+							where p.product_name like '%$search_value%' or c.cat_name like'%$search_value' or product_origin like '%$search_value'";
+							$bang = connect::ExecuteQuery($sql);
+							while($dong=mysqli_fetch_array($bang))
+							{
+								$src="../images/".$dong["product_image"];
+								?>
+									<div class="product" style="width: 250px;
+																height: 300px;
+																float: left;
+																margin: 10px;
+																margin-right: 20px;
+																text-align:center;
+																border: 1px solid #ebe8e8;">
+										<?php
+												?>                           
+													<a href="../preview.php?id=<?php echo($dong['product_id']) ?>"><img style="width: 200px; height: 199px;" src=<?php echo $src ?> alt=""></a>   
+													<h2 style="font-size: 14px;color: blue"><?php echo $dong["product_name"] ?></h2>
+													<div class="price-details">
+													<div class="price-number">
+													<p><span class="rupees"></span><?php echo(number_format($dong['product_price'])) ?> đồng</p>
+													</div>
+														<div class="add-cart">								
+															<h4><a href="preview.html">Add to Cart</a></h4>
+														</div>
+													<div class="clear"></div>
+													</div>
+												<?php					    
+											?>
+										</div>
+								<?php
+							}
+						}else
+						{
+							$price1=intval(get_string_between($search_value,0,$price));
+							$price2=intval(get_string_between($search_value,$price+1,strlen($search_value)-1));
+							$sql="SELECT * from products where product_price >= $price1 or product_price <=$price2 ";
+							$bang = connect::ExecuteQuery($sql);
+							while($dong=mysqli_fetch_array($bang))
+							{
+								$src="../images/".$dong["product_image"];
+								?>
+									<div class="product" style="width: 250px;
+																height: 300px;
+																float: left;
+																margin: 10px;
+																margin-right: 20px;
+																text-align:center;
+																border: 1px solid #ebe8e8;">
+										<?php
+												?>                           
+													<a href="../preview.php?id=<?php echo($dong['product_id']) ?>"><img style="width: 200px; height: 199px;" src=<?php echo $src ?> alt=""></a>   
+													<h2 style="font-size: 14px;color: blue"><?php echo $dong["product_name"] ?></h2>
+													<div class="price-details">
+													<div class="price-number">
+													<p><span class="rupees"></span><?php echo(number_format($dong['product_price'])) ?> đồng</p>
+													</div>
+														<div class="add-cart">								
+															<h4><a href="preview.html">Add to Cart</a></h4>
+														</div>
+													<div class="clear"></div>
+													</div>
+												<?php					    
+											?>
+										</div>
+								<?php
+							}
+						}   
+                        
             ?>
             </style>
 			</div>

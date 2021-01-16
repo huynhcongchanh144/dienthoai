@@ -1,26 +1,18 @@
-<?php
-	session_start();
-	include('./Connect/connect.php');
-	
-	$_SESSION["url"] = $_SERVER['REQUEST_URI'];
-	if(isset($_SESSION['username']))
-	{
-		header("location: ./login/index.php");
-	}
+<?php session_start();
+include('../Connect/connect.php');
+$_SESSION["url"] = $_SERVER['REQUEST_URI'];
 ?>
-
-
 <!DOCTYPE HTML>
 <head>
 <title>Shop Điện Tử</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="css/slider.css" rel="stylesheet" type="text/css" media="all"/>
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script> 
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript" src="js/startstop-slider.js"></script>
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="../css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script> 
+<script type="text/javascript" src="../js/move-top.js"></script>
+<script type="text/javascript" src="../js/easing.js"></script>
+<script type="text/javascript" src="../js/startstop-slider.js"></script>
 </head>
 <body>
   <div class="wrap">
@@ -31,17 +23,18 @@
 			</div>
 			<div class="account_desc">
 				<ul>
-					<li><a href="signup.php">Register</a></li>
-					<li><a href="login.php">Login</a></li>
+					<li>Hi,<a href=""><?php echo ($_SESSION['username']); ?></a></li>
+                    <li><a href="../index.php"><?php  session_destroy();  ?>Logout</a></li>
 					<li><a href="#">Delivery</a></li>
 					<li><a href="#">Checkout</a></li>
+					<li><a href="Cart.php">My Cart</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>
 		</div>
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.php"><img src="images/logo.png" alt="" /></a>
+				<a href="index.php"><img style="" src="../images/logo.png" alt="" /></a>
 			</div>
 			  <div class="cart">
 			  	   <p>Welcome to our Online Store! <span>Cart:</span><div id="dd" class="wrapper-dropdown-2"> 0 item(s) - $0.00
@@ -91,8 +84,8 @@
      			</ul>
 	     	</div>
 	     	<div class="search_box">
-	     		<form action="./include/search.php" method="post">
-	     			<input type="text" value="Ex: Samsung, Laptop, 10000-20000,...."  name="search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Ex: Samsung, Laptop, 10000-20000,....';}"><input type="submit" value="">
+	     		<form action="../include/search.php" method="post">
+	     			<input type="text" value="Search" name="search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
 	     		</form>
 	     	</div>
 	     	<div class="clear"></div>
@@ -102,12 +95,12 @@
 				<div class="categories">
 					<h3>Categories</h3>
 				  <?php 
-				 	include('./include/category.php') 
+				 	include('../include/category.php') 
 				  ?>
 
 					  <h3>Producer</h3>
 					  <?php
-							include('./include/producer.php')
+							include('../include/producer.php')
 					  ?>						
 				</div>					
 	  	     </div>
@@ -117,7 +110,7 @@
 			                    <div id="mover">
 			                    	<div id="slide-1" class="slide">			                    
 									 <div class="slider-img">
-									     <a href="preview.html"><img src="images/slide-1-image.png" alt="learn more" /></a>									    
+									     <a href="preview.html"><img src="../images/slide-1-image.png" alt="learn more" /></a>									    
 									  </div>
 						             	<div class="slider-text">
 		                                 <h1>Clearance<br><span>SALE</span></h1>
@@ -139,13 +132,13 @@
 							             <a href="preview.html" class="button">Shop Now</a>
 					                   </div>		
 						             	 <div class="slider-img">
-									     <a href="preview.html"><img src="images/slide-3-images.jpg" alt="learn more" /></a>
+									     <a href="preview.html"><img src="../images/slide-3-images.jpg" alt="learn more" /></a>
 									  </div>						             					                 
 									  <div class="clear"></div>				
 				                  </div>
 				                  <div class="slide">						             	
 					                  <div class="slider-img">
-									     <a href="preview.html"><img src="images/slide-2-image.jpg" alt="learn more" /></a>
+									     <a href="preview.html"><img src="../images/slide-2-image.jpg" alt="learn more" /></a>
 									  </div>
 									  <div class="slider-text">
 		                                 <h1>Clearance<br><span>SALE</span></h1>
@@ -176,10 +169,10 @@
 						switch($act)
 							{
 								case "Category":
-									include('./include/products-by-category.php');
+									include('../include/products-by-category.php');
 									break;
 								case "Producer"	:
-									include('./include/products-by-producer.php');
+									include('../include/products-by-producer.php');
 									break;					
 							}
 									
@@ -189,13 +182,38 @@
     		<h3 style="color: white">New Products</h3>
     		</div>
     		<div class="see">
-    			<p ><a style="color: white" href="products.php">See all Products</a></p>
+    			<p ><a style="color: white" href="../products.php">See all Products</a></p>
     		</div>
     		<div class="clear"></div>
     	</div>
 	      <div class="section group">
 				<?php
-					include('./include/new-products.php')
+					$sql="SELECT * FROM `products` ORDER BY ABS( DATEDIFF( day_entry, NOW() ) ) 
+                    LIMIT 10";
+                    $bang = connect::ExecuteQuery($sql);
+                    while($dong=mysqli_fetch_array($bang))
+                    {
+                        $src="../images/".$dong["product_image"];
+                        ?>
+                            <div class="product">
+                                <?php
+                                        ?>                           
+                                            <a href="#"><img src=<?php echo $src ?> alt=""></a>   
+                                            <h2><?php echo $dong["product_name"] ?></h2>
+                                            <div class="price-details">
+                                            <div class="price-number">
+                                            <p><span class="rupees"></span><?php echo $dong["product_price"] ?> đồng</p>
+                                            </div>
+                                                   <div class="add-cart">								
+                                                    <h4><a href="preview.html">Add to Cart</a></h4>
+                                                 </div>
+                                             <div class="clear"></div>
+                                            </div>
+                                        <?php					    
+                                    ?>
+                                </div>
+                        <?php
+                    }
 				?>
 			</div>
 			<div class="content_bottom" style="background-color:#383838">
@@ -203,14 +221,60 @@
     		<h3 style="color: white">Best - Selling Products</h3>
     		</div>
     		<div class="see">
-    			<p><a style="color: white" href="products.php">See all Products</a></p>
+    			<p><a style="color: white" href="../products.php">See all Products</a></p>
     		</div>
     		<div class="clear"></div>
     	</div>
 			<div class="section group">
 				<?php
-					include('./include/best-selling-products.php')
+					 $sql="SELECT * FROM `products` ORDER BY Quantity_sold DESC 
+                     LIMIT 10";
+                     $bang = connect::ExecuteQuery($sql);
+                     while($dong=mysqli_fetch_array($bang))
+                     {
+                         $src="../images/".$dong["product_image"];
+                         ?>
+                            <div class="product">
+                                 <?php
+                                         ?>                           
+                                             <a href="#"><img src=<?php echo $src ?> alt=""></a>   
+                                             <h2><?php echo $dong["product_name"] ?></h2>
+                                             <div class="price-details">
+                                             <div class="price-number">
+                                             <p><span class="rupees"></span><?php echo $dong["product_price"] ?> đồng</p>
+                                             </div>
+                                                    <div class="add-cart">								
+                                                     <h4><a href="preview.html">Add to Cart</a></h4>
+                                                  </div>
+                                              <div class="clear"></div>
+                                             </div>
+                                         <?php					    
+                                     ?>
+                                 </div>
+                         <?php
+                     }
 				?>
+                                <style>
+                            .product img{
+                                width: 200px;
+                                height: 199px;
+                            }
+
+                            .product{
+                                width: 250px;
+                                height: 300px;
+                                float: left;
+                                margin: 10px;
+                                margin-right: 20px;
+                                text-align:center;
+                                border: 1px solid #ebe8e8;
+                            }
+
+                            .product h2{
+                                font-size: 14px;
+                                color: blue
+                            }
+                </style>
 			</div>
     </div>
  </div>
@@ -221,31 +285,31 @@
 				<div class="col_1_of_4 span_1_of_4">
 						<h4>Information</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Customer Service</a></li>
+						<li><a href="../about.html">About Us</a></li>
+						<li><a href="../contact.html">Customer Service</a></li>
 						<li><a href="#">Advanced Search</a></li>
-						<li><a href="delivery.html">Orders and Returns</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="../delivery.html">Orders and Returns</a></li>
+						<li><a href="../contact.html">Contact Us</a></li>
 						</ul>
 					</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Customer Service</a></li>
+						<li><a href="../about.html">About Us</a></li>
+						<li><a href="../contact.html">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contact.html">Site Map</a></li>
+						<li><a href="../contact.html">Site Map</a></li>
 						<li><a href="#">Search Terms</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="contact.html">Sign In</a></li>
-							<li><a href="index.php">View Cart</a></li>
+							<li><a href="../contact.html">Sign In</a></li>
+							<li><a href="../index.php">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="#">Track My Order</a></li>
-							<li><a href="contact.html">Help</a></li>
+							<li><a href="../contact.html">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
@@ -257,11 +321,11 @@
 						<div class="social-icons">
 							<h4>Follow Us</h4>
 					   		  <ul>
-							      <li><a href="#" target="_blank"><img src="images/facebook.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"><img src="images/twitter.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"><img src="images/skype.png" alt="" /> </a></li>
-							      <li><a href="#" target="_blank"> <img src="images/dribbble.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"> <img src="images/linkedin.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="../images/facebook.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="../images/twitter.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="../images/skype.png" alt="" /> </a></li>
+							      <li><a href="#" target="_blank"> <img src="../images/dribbble.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"> <img src="../images/linkedin.png" alt="" /></a></li>
 							      <div class="clear"></div>
 						     </ul>
    	 					</div>

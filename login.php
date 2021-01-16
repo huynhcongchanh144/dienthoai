@@ -14,7 +14,7 @@
         <img class="image" src="images/signup.PNG" alt="get">
       </div>
       <div class="main">
-        <form action="" method="POST" class="form" id="form-1">
+        <form action="./php/xuly-login.php" method="POST" class="form" id="form-1">
           <h3 class="heading">Đăng nhập</h3>
       
           <div class="spacer"></div>
