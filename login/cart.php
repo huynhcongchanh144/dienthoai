@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Product Details</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -56,45 +56,69 @@
         </div>
         <!-- footer -->
         <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col-1">
-                        <h3>Download Our App</h3>
-                        <p>Download App for Android and IOS mobile phone.</p>
-                        <div class="app-logo">
-                            <img src="images/play-store.png">
-                            <img src="images/app-store.png">
-                        </div>
-                    </div>
-                    <div class="footer-col-2">
-                        <img src="images/logo-white.png">
-                        <p>Our Purpose Is To Sustainably Make the Pleasure and
-                            Benefits of Sports Accessible to the Many.</p>
-                    </div>
-                    <div class="footer-col-3">
-                        <h3>Usefull Links</h3>
-                        <ul>
-                            <li>Coupons</li>
-                            <li>Blog Post</li>
-                            <li>Return Policy</li>
-                            <li>Join Affiliate</li>
-                        </ul>
-                    </div>
-                    <div class="footer-col-4">
-                        <h3>Follow Us</h3>
-                        <ul>
-                            <li>Facebook</li>
-                            <li>Twitter</li>
-                            <li>Instagram</li>
-                            <li>Youtube</li>
-                        </ul>
-                    </div>
-                </div>
-                <hr>
-                <p class="copyright">Copyright 2020 - Ecommerce Shop</p>
-            </div>
+   	  <div class="wrap">	
+	     <div class="section group">
+				<div class="col_1_of_4 span_1_of_4">
+						<h4>Information</h4>
+						<ul>
+						<li><a href="../about.html">About Us</a></li>
+						<li><a href="../contact.html">Customer Service</a></li>
+						<li><a href="#">Advanced Search</a></li>
+						<li><a href="../delivery.html">Orders and Returns</a></li>
+						<li><a href="../contact.html">Contact Us</a></li>
+						</ul>
+					</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Why buy from us</h4>
+						<ul>
+						<li><a href="../about.html">About Us</a></li>
+						<li><a href="../contact.html">Customer Service</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="../contact.html">Site Map</a></li>
+						<li><a href="#">Search Terms</a></li>
+						</ul>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>My account</h4>
+						<ul>
+							<li><a href="../contact.html">Sign In</a></li>
+							<li><a href="../index.php">View Cart</a></li>
+							<li><a href="#">My Wishlist</a></li>
+							<li><a href="#">Track My Order</a></li>
+							<li><a href="../contact.html">Help</a></li>
+						</ul>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Contact</h4>
+						<ul>
+							<li><span>+91-123-456789</span></li>
+							<li><span>+00-123-000000</span></li>
+						</ul>
+						<div class="social-icons">
+							<h4>Follow Us</h4>
+					   		  <ul>
+							      <li><a href="#" target="_blank"><img src="../images/facebook.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="../images/twitter.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="../images/skype.png" alt="" /> </a></li>
+							      <li><a href="#" target="_blank"> <img src="../images/dribbble.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"> <img src="../images/linkedin.png" alt="" /></a></li>
+							      <div class="clear"></div>
+						     </ul>
+   	 					</div>
+				</div>
+			</div>			
         </div>
-        <script src="web.js"></script>
+        <div class="copy_right">
+				<p>&copy; 2013 home_shoppe. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+		   </div>
+    </div>
+    <script type="text/javascript">
+		$(document).ready(function() {			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+    <a href="#" id="toTop"><span id="toTopHover"> </span></a>
     </body>
 </html>
 
@@ -316,38 +340,7 @@ small{
 .col-5 img:hover{
     filter: grayscale(0);
 }
-.footer{
-    background: #000;
-    color: #8a8a8a;
-    font-size: 14px;
-    padding: 60px 0 20px;
-}
-.footer p{
-    color: #8a8a8a;
-}
-.footer h3{
-    color: #fff;
-    margin-bottom: 20px;
-}
-.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
-    min-width: 250px;
-    margin-bottom: 20px;   
-}
-.footer-col-1{
-    flex-basis: 30%;
-}
-.footer-col-2{
-    flex: 1;
-    text-align: center;
-}
-.footer-col-2 img{
-    width: 180px;
-    margin-bottom: 20px;
-}
-.footer-col-3, .footer-col-4{
-    flex-basis:12%;
-    text-align: center;
-}
+
 ul{
     list-style-type: none;
 }
@@ -357,12 +350,7 @@ ul{
 .app-logo img{
     width: 140px;
 }
-.footer hr{
-    border:none;
-    background: #b5b5b5;
-    height: 1px;
-    margin: 20px;
-}
+
 .copyright{
     text-align:center;
 }

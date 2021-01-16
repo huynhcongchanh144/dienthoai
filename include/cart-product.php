@@ -1,16 +1,20 @@
 <?php
+    if($_SESSION['maSP']==false)
+    {
+        $_SESSION['maSP']=array();
+    }
     if(isset($_GET['MaSp']))
     {
         $id=$_GET['MaSp'];
-        $_SESSION['maSP']=array();
         if(count($_SESSION['maSP'])==0) 
         {            
            $_SESSION['maSP'][count($_SESSION['maSP'])]=$id;
         }       
-        if(count($_SESSION['maSP'])>0)
+        else if(count($_SESSION['maSP'])>0)
         {               
-                  $_SESSION['maSP'][count($_SESSION['maSP'])]=$id;
-                $total=0;
+                $_SESSION['maSP'][count($_SESSION['maSP'])]=$id;               
+        }
+        $total=0;
                 for($i=0;$i<count($_SESSION['maSP']);$i++)
                 {
                     $id=$_SESSION['maSP'][$i];
@@ -22,19 +26,19 @@
                 ?>
                     <tr>
                         <td> <div class="cart-info">
-                            <img src=<?php echo($src) ?>>
+                            <img style="width: 60px;height: 70px" src=<?php echo($src) ?>>
                             <div>
                                 <p><?php echo($dong['product_name']) ?></p>
                             </div>
                         </div>
-                        </td>                        <td>1</td>
-                        <td><?php echo(number_format($dong['product_price'])) ?> VND</td>
+                        </td>                       
+                        <td style="vertical-align: middle;"><p style="padding-left: 30px">1</p></td>
+                        <td style="vertical-align: middle;"><?php echo(number_format($dong['product_price'])) ?> VND</td>
                         
                     </tr>
                 <?php
                 }
                 $_SESSION['total']=$total;
-        }
     }
     else{
                 $total=0;
@@ -49,13 +53,14 @@
                 ?>
                     <tr>
                         <td> <div class="cart-info">
-                            <img src=<?php echo($src) ?>>
+                            <img  src=<?php echo($src) ?>>
                             <div>
-                                <p><?php echo($dong['product_name']) ?></p>
+                                <p style="padding-top: 20px"><?php echo($dong['product_name']) ?></p>
                             </div>
                         </div>
-                        </td>                        <td>1</td>
-                        <td><?php echo(number_format($dong['product_price'])) ?> VND</td>
+                        </td>                        
+                        <td style="vertical-align: middle;"><p style="padding-left: 30px">1</p></td>
+                        <td style="vertical-align: middle;"><?php echo(number_format($dong['product_price'])) ?> VND</td>
                         
                     </tr>
                 <?php
