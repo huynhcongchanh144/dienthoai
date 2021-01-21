@@ -100,7 +100,7 @@ include('include/scripts.php');?>
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="code.php" method="POST">
+                    <form action="./php/xuly-AddUser.php" method="POST">
 
                         <div class="modal-body">
 
@@ -111,6 +111,10 @@ include('include/scripts.php');?>
                             <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                            </div>
+                            <div class="form-group">
+                                <label>Permission</label>
+                                <input type="text" name="permission" class="form-control" placeholder="Enter Permission">
                             </div>
                         </div>
                         <div class="modal-footer">

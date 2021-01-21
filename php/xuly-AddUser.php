@@ -3,39 +3,55 @@
     header('Content-Type: text/html; charset=UTF-8');
      
 
-    if (isset($_POST['addbtn'])) 
+    if (isset($_POST['registerbtn'])) 
     {
          
         //Lấy dữ liệu nhập vào
-        $codecategory = addslashes($_POST['codecategory']);
-        $namecategory = addslashes($_POST['namecategory']);
+        $username = addslashes($_POST['username']);
+        $password = addslashes($_POST['password']);
+        $permission=addslashes($_POST['permission']);
         $con= mysqli_connect('localhost','root','18600332','ustora');
         
-        if (!$codecategory || !$namecategory) {
-            echo "Vui lòng nhập đầy đủ tên loại và mã loại. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        if (!$password || !$username || !$permission) {
+            echo "Vui lòng nhập đầy đủ Username và Password. <a href='javascript: history.go(-1)'>Trở lại</a>";
             exit;
         }
-        $query = mysqli_query($con,"SELECT * FROM categories where cat_id=$codecategory");
+        $password=md5($password);
+        $query = mysqli_query($con,"SELECT * FROM user where username='$username'");
         if (mysqli_num_rows($query) > 0) {
-            echo "Loại hàng đã tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
+            echo "Username đã tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
             exit;
         }else{
-            @$AddCategory=mysqli_query($con,"
-            INSERT INTO categories (
-                cat_id,
-                cat_name
+            $sql="SELECT * from user ORDER BY id DESC LIMIT 1";
+            $bang=mysqli_query($con,$sql);
+            $dong=mysqli_fetch_array($bang);
+            $id=$dong['id']+1;
+            @$AddUser=mysqli_query($con,"
+            INSERT INTO user (
+                id,
+                username,
+                password,
+                name,
+                birthday,
+                address,
+                permission
             )
             VALUE (
-                '{$codecategory}',
-                '{$namecategory}'              
+                '{$id}',
+                '{$username}',
+                '{$password}',
+                '{$fullname}',
+                '{$birthday}',
+                '{$location}',
+                '{$permiss}'
             )
             ");
-            if($AddCategory)
+            if($AddUser)
             {
-                header('location: ../category-admin.php');
+                header('location: ../user_account-admin.php');
             }
             else{
-                echo "Thêm thất bại. <a href='../category-admin.php'>Trở lại</a>";
+                echo "Thêm thất bại. <a href='../user_account-admin.php'>Trở lại</a>";
             }
         }
 
