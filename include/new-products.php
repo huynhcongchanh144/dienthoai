@@ -1,4 +1,5 @@
 <?php 
+    
     $sql="SELECT * FROM `products` ORDER BY ABS( DATEDIFF( day_entry, NOW() ) ) 
     LIMIT 10";
     $bang = connect::ExecuteQuery($sql);
@@ -16,7 +17,7 @@
 							<p><span class="rupees"></span><?php echo(number_format($dong['product_price'])) ?> đồng</p>
 					        </div>
 					       		<div class="add-cart">								
-									<h4><a href="preview.html">Add to Cart</a></h4>
+									<h4><a href="./preview.php?id=<?php echo($dong['product_id']) ?>">Add to Cart</a></h4>
 							     </div>
 							 <div class="clear"></div>
 					        </div>
@@ -39,7 +40,6 @@
         height: 300px;
         float: left;
         margin: 10px;
-        margin-right: 20px;
         text-align:center;
         border: 1px solid #ebe8e8;
     }

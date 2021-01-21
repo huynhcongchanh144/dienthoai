@@ -41,7 +41,7 @@
                     <p>Price: <span class="price"><?php  echo(number_format($dong['product_price'])) ?> VND</span></p>                   
                 </div>
 				<div class="share-desc">
-					<div class="button"><span><a href="../login/cart.php?MaSp=<?php echo($dong['product_id']) ?>">Add to Cart</a></span></div>					
+					<div class="button"><span><a href="../dienthoai/login.php">Add to Cart</a></span></div>					
 					<div class="clear"></div>
 				</div>
 			</div>
@@ -99,7 +99,7 @@
 							<p><span class="rupees"></span><?php echo(number_format($dongSPCL['product_price'])) ?> đồng</p>
 					        </div>
 					       		<div class="add-cart">								
-									<h4><a href="preview.html">Add to Cart</a></h4>
+									<h4><a href="./preview.php?id=<?php echo($dongSPCL['product_id']) ?>">Add to Cart</a></h4>
 							     </div>
 							 <div class="clear"></div>
 					        </div>

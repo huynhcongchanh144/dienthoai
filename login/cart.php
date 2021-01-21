@@ -40,9 +40,11 @@
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Subtotal</th>
+                    <th>Edit</th>
                 </tr>
-                <?php  
+                <?php
                     include('../include/cart-product.php');
+                    $_SESSION['sosp']=$_SESSION['count'];
                 ?>           
             </table>
             <div class="total-price">
@@ -50,9 +52,12 @@
                     <tr>
                         <td>Total</td>
                         <td><?php echo(number_format($_SESSION['total'])) ?> VND</td>
-                    </tr> 
-                </table>
+                    </tr>
+                </table>                
             </div>
+            <form action="../php/payment.php">
+                    <button style='margin-left: 900px; padding: 10px'>Payment</button>
+                </form>
         </div>
         <!-- footer -->
         <div class="footer">

@@ -263,7 +263,6 @@ $_SESSION["url"] = $_SERVER['REQUEST_URI'];
                                 height: 300px;
                                 float: left;
                                 margin: 10px;
-                                margin-right: 20px;
                                 text-align:center;
                                 border: 1px solid #ebe8e8;
                             }
@@ -343,9 +342,3 @@ $_SESSION["url"] = $_SERVER['REQUEST_URI'];
     <a href="#" id="toTop"><span id="toTopHover"> </span></a>
 </body>
 </html>
-
-<?php
-	function logout(){
-		session_destroy();
-	}
-?>

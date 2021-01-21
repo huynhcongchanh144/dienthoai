@@ -15,7 +15,7 @@
     <div class="main">
       <form action="./php/xuly-login-admin.php" method="POST" class="form" id="form-1">
         <h3 class="heading">Welcome</h3>
-        <h4 class="heading-4">PLEASE LOGIN TO ADMIN DASBOARD</h4>
+        <h4 class="heading-4">PLEASE LOGIN TO ADMIN DASHBOARD</h4>
     
         <div class="spacer"></div>
 

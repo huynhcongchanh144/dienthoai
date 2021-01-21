@@ -1,5 +1,5 @@
 
-<?php 
+<?php
     $sql="SELECT * FROM `products`";
     $bang = connect::ExecuteQuery($sql);
     while($dong=mysqli_fetch_array($bang))
@@ -16,7 +16,7 @@
 							<p><span class="rupees"></span><?php echo(number_format($dong['product_price'])) ?> đồng</p>
 					        </div>
 					       		<div class="add-cart">								
-									<h4><a href="preview.html">Add to Cart</a></h4>
+									<h4><a href="./preview.php?id=<?php echo($dong['product_id']) ?>">Add to Cart</a></h4>
 							     </div>
 							 <div class="clear"></div>
 					        </div>

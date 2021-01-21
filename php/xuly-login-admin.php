@@ -1,5 +1,5 @@
 <?php
- 
+ session_start();
 //Khai báo utf-8 để hiển thị được tiếng việt
 header('Content-Type: text/html; charset=UTF-8');
  
@@ -38,7 +38,7 @@ if (isset($_POST['username']))
     }
      
     //Lưu tên đăng nhập
-    $_SESSION['username'] = $username;
+    $_SESSION['admin'] = $username;
     ?>
     <script>
         window.open('../dashboard.php','_self');
