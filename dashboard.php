@@ -1,13 +1,12 @@
+<link href="./css/style-admin.css" rel="stylesheet" type="text/css">
+<link href="./css/sb-admin-2.min.css" rel="stylesheet">
+<link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="./css/sb-admin-2.min.css" rel="stylesheet">
 <?php 
 session_start();
 include('include/header.php');
 include('./Connect/connect.php');
-include('include/navbar.php');
-include('include/scripts.php');?>
-<link href="./css/style-admin.css" rel="stylesheet" type="text/css">
-<link href="./css/sb-admin-2.min.css" rel="stylesheet">
-<link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-         <link href="./css/sb-admin-2.min.css" rel="stylesheet">
+include('include/navbar.php');?>
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 

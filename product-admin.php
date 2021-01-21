@@ -99,22 +99,17 @@ include('include/navbar.php');?>
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="code.php" method="POST">
+                    <form action="./php/xuly-AddProduct.php" method="POST">
 
-                        <div class="modal-body">
-
-                            <div class="form-group">
-                                <label> Mã sản phẩm </label>
-                                <input type="text" name="codeproduct" class="form-control" placeholder="Enter Code Product">
-                            </div>
+                        <div class="modal-body">                         
                             <div class="form-group">
                                 <label>Tên sản phẩm</label>
                                 <input type="text" name="nameproduct" class="form-control" placeholder="Enter Name Product">
-                            </div>
+                            </div>                                                    
                             <div class="form-group">
                                 <label>Mô tả</label>
                                 <input type="text" name="description" class="form-control" placeholder="Enter Description">
-                            </div>
+                            </div>                           
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

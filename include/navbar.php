@@ -1,8 +1,7 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
 <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./dashboard.php">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../dienthoai/dashboard.php">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-user-secret"></i>
         </div>
@@ -34,13 +33,13 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Commodity Management:</h6>
-                <a class="collapse-item" href="../category-admin.php"><i class="fa fa-dolly"></i> Categories</a>
-                <a class="collapse-item" href="../product-admin.php"><i class="fas fa-shopping-basket"></i> Products</a>
-                <a class="collapse-item" href="../producer-admin.php"><i class="fas fa-store-alt"></i> Producer</a>
-                <a class="collapse-item" href="../order-admin.php"><i class="fas fa-truck-loading"></i> Order</a>
+                <a class="collapse-item" href="../dienthoai/category-admin.php"><i class="fa fa-dolly"></i> Categories</a>
+                <a class="collapse-item" href="../dienthoai/product-admin.php"><i class="fas fa-shopping-basket"></i> Products</a>
+                <a class="collapse-item" href="../dienthoai/producer-admin.php"><i class="fas fa-store-alt"></i> Producer</a>
+                <a class="collapse-item" href="../dienthoai/order-admin.php"><i class="fas fa-truck-loading"></i> Order</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Users Management:</h6>
-                <a class="collapse-item" href="../user_account-admin.php"><i class="fas fa-users-cog"></i> Users Account</a>
+                <a class="collapse-item" href="../dienthoai/user_account-admin.php"><i class="fas fa-users-cog"></i> Users Account</a>
             </div>
         </div>
     </li>

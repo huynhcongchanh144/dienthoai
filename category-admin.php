@@ -97,7 +97,7 @@ include('include/navbar.php');?>
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="#" method="POST">
+                    <form action="./php/xuly-AddCategory.php" method="POST">
 
                         <div class="modal-body">
 
@@ -152,8 +152,12 @@ include('include/navbar.php');?>
                                             <tr>
                                                 <td><?php echo($dong['cat_id']) ?></td>
                                                 <td><?php echo($dong['cat_name']) ?></td>
-                                                <td><a href="#" class="text-white"><span class="badge bg-success">Edit</span></a></td>
-                                                <td><a href="#" class="text-white"><span class="badge bg-danger">Delete</span></a></td>
+                                                <td>
+                                                <a href="./php/edit-cat-admin.php?id=<?php echo("$dong[cat_id]") ?>" class="text-white"><span class="badge bg-success">Edit</span></a>
+                                                </td>
+                                                <td>
+                                                <a href="./php/delete-cat-admin.php?id=<?php echo("$dong[cat_id]") ?>" class="text-white"><span class="badge bg-success">Delete</span></a>
+                                                </td>
                                             </tr>
                                         <?php
                                     }
